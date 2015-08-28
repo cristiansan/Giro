@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@drawable/positive_active"
+        android:state_pressed="true" />
+    <item android:drawable="@drawable/ring_smiles_big"
+        android:state_focused="true" />
+    <item android:drawable="@drawable/positive_normal" />
+
+
+</selector>
