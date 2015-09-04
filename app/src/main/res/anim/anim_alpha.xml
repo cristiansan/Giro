@@ -5,6 +5,13 @@
         android:fromAlpha="1.0"
         android:toAlpha="0.1"
         android:duration="1000"
-        android:repeatCount="1"
+        android:repeatCount="0"
         android:repeatMode="reverse" />
+    <translate
+        android:fromXDelta="100%p"
+        android:toXDelta="0"
+        android:duration="1000"
+        android:startOffset="2"
+        />
+
 </set>
