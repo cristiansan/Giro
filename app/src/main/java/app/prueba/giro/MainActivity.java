@@ -1,109 +1,118 @@
 package app.prueba.giro;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageButton;
-import android.widget.TextSwitcher;
+import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.ViewSwitcher;
 
-public class MainActivity extends Activity
-{
-    private TextSwitcher mSwitcher;
-    private TextSwitcher mSwitcher2;
 
-    ImageButton btnSmile;
-    ImageButton btnRegular;
-    ImageButton btnNegative;
 
-    String textToShow[]= {"¿Cómo fue nuestra atención el día de hoy?", "¿Se sintió atendido con calidez , amabilidad y respeto ?", "¿Cómo evalúa la ayuda recibida ?"};
-    String textToShow2[]= {"buena                 regular            mala", "si             mas o menos              no", "buena           regular           mala"};
-    int messageCount=textToShow.length;
-    int currentIndex=-1;
+public class MainActivity extends Activity {
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // botones
-        btnSmile=(ImageButton)findViewById(R.id.button_smile);
-        btnRegular=(ImageButton)findViewById(R.id.button_regular);
-        btnNegative=(ImageButton)findViewById(R.id.button_negative);
-        mSwitcher = (TextSwitcher) findViewById(R.id.textSwitcher);
-        mSwitcher2 = (TextSwitcher) findViewById(R.id.textSwitcher2);
+        //más animaciones como: final Animation animShake = AnimationUtils.loadAnimation(this, R.anim.shake);
+        final Animation animAlpha = AnimationUtils.loadAnimation(this, R.anim.anim_alpha);
+        final Animation animTranslate = AnimationUtils.loadAnimation(this, R.anim.anim_translate);
 
-        // textos pregguntas
-        mSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+        //llamando los botones
+        final FrameLayout btnSmile = (FrameLayout) findViewById(R.id.frame_left);
+        final FrameLayout btnRegular = (FrameLayout) findViewById(R.id.frame_midle);
+        final FrameLayout btnNegative = (FrameLayout) findViewById(R.id.frame_right);
 
-            public View makeView() {
-                TextView myText = new TextView(MainActivity.this);
-                myText.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL);
-                myText.setTextSize(22);
-                myText.setTextColor(Color.WHITE);
-                return myText;
-            }
-        });
-        // textos respuestas
-        mSwitcher2.setFactory(new ViewSwitcher.ViewFactory() {
+        //onclick
+        btnSmile.setOnClickListener(new FrameLayout.OnClickListener()
 
-            public View makeView() {
-                TextView myText2 = new TextView(MainActivity.this);
-                myText2.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
-                myText2.setTextSize(30);
-                myText2.setTextColor(Color.WHITE);
-                return myText2;
+        {
+            @Override
+            public void onClick(View arg0) {
+                arg0.startAnimation(animAlpha);
+                displaypregunta3(getString(R.string.pregunta_tercera));
+                displayrespuesta3(getString(R.string.pregunta_tercera));
+                btnSmile.setAnimation(animTranslate);
+
+
+
             }
         });
 
-        // tipo de anim
+        btnRegular.setOnClickListener(new FrameLayout.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                arg0.startAnimation(animAlpha);
+                displaypregunta2(getString(R.string.pregunta_primera));
+                displayrespuesta2(getString(R.string.pregunta_tercera));
+                btnRegular.setAnimation(animTranslate);
+
+
+            }
+        });
+
+        btnNegative.setOnClickListener(new FrameLayout.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                arg0.startAnimation(animAlpha);
+                displaypregunta1(getString(R.string.pregunta_segunda));
+                displayrespuesta1(getString(R.string.pregunta_tercera));
+                btnNegative.setAnimation(animTranslate);
+            }
+        });
+
+        /*// tipo de anim
         Animation in = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
-        Animation out = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);
+        Animation out = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);*/
 
-        // anim del textswithcher
-        mSwitcher.setInAnimation(in);
-        mSwitcher.setOutAnimation(out);
-        mSwitcher2.setInAnimation(in);
-        mSwitcher2.setOutAnimation(out);
 
-        // boton clickeado
-        btnSmile.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View v) {
-                currentIndex++;
-                if(currentIndex==messageCount)
-                    currentIndex=0;
-                mSwitcher.setText(textToShow[currentIndex]);
-                mSwitcher2.setText(textToShow2[currentIndex]);
-            }
-        });
-
-        btnRegular.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                currentIndex++;
-                if(currentIndex==messageCount)
-                    currentIndex=0;
-                mSwitcher.setText(textToShow[currentIndex]);
-                mSwitcher2.setText(textToShow2[currentIndex]);
-            }
-        });
-
-        btnNegative.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                currentIndex++;
-                if(currentIndex==messageCount)
-                    currentIndex=0;
-                mSwitcher.setText(textToShow[currentIndex]);
-                mSwitcher2.setText(textToShow2[currentIndex]);
-            }
-        });
     }
+
+    //mostrar respuestas
+    private void displaypregunta2(String string) {
+        TextView preguntaTextView = (TextView) findViewById(R.id.pregunta);
+        preguntaTextView.setText(R.string.pregunta_tercera);
+
+    }
+    private void displaypregunta3(String pregunta) {
+        TextView preguntaTextView = (TextView) findViewById(R.id.pregunta);
+        preguntaTextView.setText(R.string.pregunta_primera);
+    }
+    private void displaypregunta1(String pregunta) {
+        TextView preguntaTextView = (TextView) findViewById(R.id.pregunta);
+        preguntaTextView.setText(R.string.pregunta_segunda);
+    }
+
+    private void displayrespuesta3(String string) {
+        TextView respuestaTextView = (TextView) findViewById(R.id.resp_izquierda);
+        respuestaTextView.setText(R.string.respuesta_buena);
+        TextView respuesta2TextView = (TextView) findViewById(R.id.resp_central);
+        respuesta2TextView.setText(R.string.respuesta_regular);
+        TextView respuesta3TextView = (TextView) findViewById(R.id.resp_derecha);
+        respuesta3TextView.setText(R.string.respuesta_buena);
+    }
+
+    private void displayrespuesta2(String string) {
+        TextView respuestaTextView = (TextView) findViewById(R.id.resp_izquierda);
+        respuestaTextView.setText(R.string.respuesta_si);
+        TextView respuesta2TextView = (TextView) findViewById(R.id.resp_central);
+        respuesta2TextView.setText(R.string.respuesta_mas_o_menos);
+        TextView respuesta3TextView = (TextView) findViewById(R.id.resp_derecha);
+        respuesta3TextView.setText(R.string.respuesta_no);
+    }
+
+    private void displayrespuesta1(String string) {
+        TextView respuestaTextView = (TextView) findViewById(R.id.resp_izquierda);
+        respuestaTextView.setText(R.string.respuesta_buena);
+        TextView respuesta2TextView = (TextView) findViewById(R.id.resp_central);
+        respuesta2TextView.setText(R.string.respuesta_regular);
+        TextView respuesta3TextView = (TextView) findViewById(R.id.resp_derecha);
+        respuesta3TextView.setText(R.string.respuesta_buena);
+    }
+
 }

@@ -1,108 +1,174 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="@android:color/holo_blue_dark"
-    android:id="@+id/main"
-    android:clickable="true"
-    android:baselineAligned="false">
-
-
+    android:background="@android:color/holo_blue_light"
+    android:id="@+id/mainLayout"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:gravity="center">
+        android:gravity="bottom|center">
 
 
-        <TextSwitcher
-            android:id="@+id/textSwitcher"
+        <TextView
+            android:id="@+id/pregunta"
             android:text="@string/pregunta_primera"
             android:textSize="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="#ffffff"/>
-
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <ImageButton
-            android:id="@+id/button_smile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:src="@drawable/btn_smile"
-            android:onClick="submitText"
-            android:clickable="true"
-            android:layout_weight="1"
-            style="?android:attr/borderlessButtonStyle"
-            />
-
-        <ImageButton
-            android:id="@+id/button_regular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:src="@drawable/btn_regular"
-            android:onClick="submitText"
-            android:layout_weight="1"
-            style="?android:attr/borderlessButtonStyle"
-
-            />
-
-        <ImageButton
-            android:id="@+id/button_negative"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:src="@drawable/btn_negative"
-            android:onClick="submitText"
-            android:layout_weight="1"
-            style="?android:attr/borderlessButtonStyle"
-            />
+            android:singleLine="true"
+            android:textColor="#ffffff" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_weight="4">
 
-
-        <TextSwitcher
-            android:id="@+id/textSwitcher2"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:text="@string/respuesta_regular"
-            android:textColor="#ffffff"
-            android:textSize="20dp"
-            android:gravity="center_horizontal"
-            android:layout_weight="1"
-            android:textAllCaps="true"/>
+            android:id="@+id/back"
+            android:src="@drawable/back"
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
+            android:layout_marginBottom="45dp"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"
+                android:layout_weight="2"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="50dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/frame_left"
+                        android:onClick="submitText"
+                        android:clickable="true">
+
+                        <ImageView
+                            android:id="@+id/button_smile"
+                            android:text="@string/respuesta_si"
+                            android:layout_marginBottom="20dp"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:background="@drawable/btn_smile"
+                            android:scaleType="fitCenter"/>
+
+                        <TextView
+                            android:id="@+id/resp_izquierda"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/respuesta_buena"
+                            android:textSize="20dp"
+                            android:textColor="#ffffff"
+                            android:gravity="bottom|center_horizontal"
+                            android:layout_gravity="center|bottom"
+                            android:textAllCaps="true" />
 
 
+                    </FrameLayout>
 
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="1"
+                        android:id="@+id/frame_midle"
+                        android:onClick="submitText"
+                        android:clickable="true">
+
+                        <ImageView
+                            android:id="@+id/button_regular"
+                            android:layout_marginBottom="20dp"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:background="@drawable/btn_regular"
+                            android:scaleType="center"/>
+
+                        <TextView
+                            android:id="@+id/resp_central"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/respuesta_regular"
+                            android:textColor="#ffffff"
+                            android:textSize="20dp"
+                            android:gravity="bottom|center_horizontal"
+                            android:layout_weight="1"
+                            android:textAllCaps="true"/>
+
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/frame_right"
+                        android:onClick="submitText"
+                        android:clickable="true">
+
+                        <ImageView
+                            android:id="@+id/button_negative"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginBottom="20dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:background="@drawable/btn_negative"
+                            android:scaleType="centerCrop"/>
+
+                        <TextView
+                            android:id="@+id/resp_derecha"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/respuesta_mala"
+                            android:textSize="20dp"
+                            android:textColor="#ffffff"
+                            android:gravity="bottom|center_horizontal"
+                            android:layout_weight="1"
+                            android:textAllCaps="true"/>
+
+
+                    </FrameLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
+
+
 </LinearLayout>
+
