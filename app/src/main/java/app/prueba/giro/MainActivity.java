@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
                 arg0.startAnimation(animAlpha);
                 displaypregunta3(getString(R.string.pregunta_tercera));
                 displayrespuesta3(getString(R.string.pregunta_tercera));
-                btnSmile.setAnimation(animTranslate);
+                //btnSmile.setAnimation(animTranslate);
                 ImageView back = (ImageView)findViewById(R.id.back);
                 back.setVisibility(View.VISIBLE);
 
@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
                 arg0.startAnimation(animAlpha);
                 displaypregunta2(getString(R.string.pregunta_primera));
                 displayrespuesta2(getString(R.string.pregunta_tercera));
-                btnRegular.setAnimation(animTranslate);
+               // btnRegular.setAnimation(animTranslate);
                 ImageView back = (ImageView)findViewById(R.id.back);
                 back.setVisibility(View.VISIBLE);
 
@@ -64,23 +64,11 @@ public class MainActivity extends Activity {
                 arg0.startAnimation(animAlpha);
                 displaypregunta1(getString(R.string.pregunta_segunda));
                 displayrespuesta1(getString(R.string.pregunta_tercera));
-                btnNegative.setAnimation(animTranslate);
+                //btnNegative.setAnimation(animTranslate);
                 ImageView back = (ImageView)findViewById(R.id.back);
                 back.setVisibility(View.VISIBLE);
             }
         });
-
-        /*// tipo de anim
-        Animation in = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
-        Animation out = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);*/
-       /* ImageView button = (ImageView) findViewById(R.id.back);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                ImageView tv = AndroidAssignment2_1.this.findViewById(R.id.back);
-                tv.setVisibility(View.VISIBLE);
-            }
-        });*/
-
 
     }
 

@@ -44,7 +44,9 @@
             android:layout_gravity="center"
             android:foregroundGravity="center"
             android:layout_marginBottom="45dp"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            android:focusableInTouchMode="true"
+            />
 
         <LinearLayout
             android:orientation="vertical"
@@ -73,7 +75,8 @@
                         android:layout_weight="1"
                         android:id="@+id/frame_left"
                         android:onClick="submitText"
-                        android:clickable="true">
+                        android:clickable="true"
+                        android:paddingLeft="30dp">
 
                         <ImageView
                             android:id="@+id/button_smile"
@@ -139,7 +142,8 @@
                         android:layout_weight="1"
                         android:id="@+id/frame_right"
                         android:onClick="submitText"
-                        android:clickable="true">
+                        android:clickable="true"
+                        android:paddingRight="30dp">
 
                         <ImageView
                             android:id="@+id/button_negative"
