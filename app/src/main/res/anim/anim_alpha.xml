@@ -4,14 +4,14 @@
     <alpha
         android:fromAlpha="1.0"
         android:toAlpha="0.1"
-        android:duration="1000"
+        android:duration="750"
         android:repeatCount="0"
         android:repeatMode="reverse" />
-    <translate
+<!--    <translate
         android:fromXDelta="100%p"
         android:toXDelta="0"
         android:duration="1000"
         android:startOffset="2"
-        />
+        />-->
 
 </set>
