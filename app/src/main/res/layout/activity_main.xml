@@ -34,7 +34,8 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4">
+        android:layout_weight="4"
+        >
 
         <ImageView
             android:layout_width="50dp"
@@ -46,6 +47,8 @@
             android:layout_marginBottom="45dp"
             android:visibility="invisible"
             android:focusableInTouchMode="true"
+            android:clickable="true"
+            android:onClick="submitText"
             />
 
         <LinearLayout
@@ -75,19 +78,20 @@
                         android:layout_weight="1"
                         android:id="@+id/frame_left"
                         android:onClick="submitText"
+                        android:background="@drawable/oval"
                         android:clickable="true"
                         android:paddingLeft="30dp">
 
                         <ImageView
                             android:id="@+id/button_smile"
-                            android:text="@string/respuesta_si"
                             android:layout_marginBottom="20dp"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:background="@drawable/btn_smile"
-                            android:scaleType="fitCenter"/>
+                            android:scaleType="fitCenter"
+                            />
 
                         <TextView
                             android:id="@+id/resp_izquierda"
@@ -106,7 +110,7 @@
                     <FrameLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-
+                        android:background="@drawable/oval"
                         android:layout_weight="1"
                         android:id="@+id/frame_midle"
                         android:onClick="submitText"
@@ -141,6 +145,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/frame_right"
+                        android:background="@drawable/oval"
+
                         android:onClick="submitText"
                         android:clickable="true"
                         android:paddingRight="30dp">

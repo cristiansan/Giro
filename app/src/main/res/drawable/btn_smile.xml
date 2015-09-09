@@ -4,9 +4,15 @@
     <item
         android:drawable="@drawable/positive_active"
         android:state_pressed="true" />
-    <item android:drawable="@drawable/ring_smiles_big"
+    <item android:drawable="@drawable/positive_normal"
         android:state_focused="true" />
-    <item android:drawable="@drawable/positive_normal" />
+    <item android:drawable="@drawable/positive_normal" >
+
+
+    </item>
+
+
+
 
 
 </selector>

@@ -1,7 +1,7 @@
 package app.prueba.giro;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -10,8 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
 
     @Override
@@ -27,6 +26,7 @@ public class MainActivity extends Activity {
         final FrameLayout btnSmile = (FrameLayout) findViewById(R.id.frame_left);
         final FrameLayout btnRegular = (FrameLayout) findViewById(R.id.frame_midle);
         final FrameLayout btnNegative = (FrameLayout) findViewById(R.id.frame_right);
+        final ImageView   btnBack = (ImageView) findViewById(R.id.back);
 
         //onclick
         btnSmile.setOnClickListener(new FrameLayout.OnClickListener()
@@ -40,8 +40,6 @@ public class MainActivity extends Activity {
                 //btnSmile.setAnimation(animTranslate);
                 ImageView back = (ImageView)findViewById(R.id.back);
                 back.setVisibility(View.VISIBLE);
-
-
             }
         });
 
@@ -54,7 +52,6 @@ public class MainActivity extends Activity {
                // btnRegular.setAnimation(animTranslate);
                 ImageView back = (ImageView)findViewById(R.id.back);
                 back.setVisibility(View.VISIBLE);
-
             }
         });
 
@@ -70,6 +67,14 @@ public class MainActivity extends Activity {
             }
         });
 
+        btnBack.setOnClickListener(new ImageView.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                displaypregunta1(getString(R.string.pregunta_segunda));
+                displayrespuesta1(getString(R.string.pregunta_tercera));
+                //btnNegative.setAnimation(animTranslate);
+            }
+        });
     }
 
     //mostrar respuestas
